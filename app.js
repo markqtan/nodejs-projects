@@ -30,3 +30,4 @@ hbs.registerHelper('getCurrentYear', () => {
     return new Date().getFullYear()
 });
 //testing
+module.exports.app = app;
