@@ -1,6 +1,8 @@
 const express = require('express');
 const hbs = require('hbs');
 hbs.registerPartials(__dirname + '/views/partials')
+
+const port = process.env.PORT || 3000;
 var app = express();
 app.set('view engine', 'hbs');
 app
@@ -20,7 +22,9 @@ app
 })
 .use(express.static(__dirname + '/public'))
 
-.listen(3000);
+.listen(port, ()=> {
+    console.log(`Server is up on port ${port}`);
+});
 
 hbs.registerHelper('getCurrentYear', () => {
     return new Date().getFullYear()
